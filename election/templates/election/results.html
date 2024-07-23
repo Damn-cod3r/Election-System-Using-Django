@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Your Results</h1>
+        <p><strong>Total Votes for You:</strong> {{ total_votes }}</p>
+        <p><strong>Total Votes Cast:</strong> {{ total_vote_count }}</p>
+        <h2>Voters List</h2>
+        <ul>
+            {% for voter in voters %}
+                <li>{{ voter }}</li>
+            {% empty %}
+                <li>No votes yet.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
