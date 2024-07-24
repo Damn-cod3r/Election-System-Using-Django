@@ -9,10 +9,21 @@
 <body>
     <div class="container">
         <h1 class="my-4">Candidate Signup</h1>
+
+        <!-- Display messages -->
+        {% if messages %}
+            <div class="alert alert-dismissible fade show" role="alert">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+                
+            </div>
+        {% endif %}
+
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
-                <label for="name">Full Name</label>
+                <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
@@ -26,5 +37,9 @@
             <button type="submit" class="btn btn-primary">Signup</button>
         </form>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

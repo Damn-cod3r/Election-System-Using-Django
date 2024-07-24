@@ -9,15 +9,28 @@
 <body>
     <div class="container">
         <h1 class="my-4">Your Results</h1>
+
+        <!-- Display messages -->
+        {% if messages %}
+            <div class="alert alert-dismissible fade show" role="alert">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+                
+            </div>
+        {% endif %}
+
         <p><strong>Total Votes for You:</strong> {{ total_votes }}</p>
         <p><strong>Total Votes Cast:</strong> {{ total_vote_count }}</p>
         <h2>Voters List</h2>
         <ul>
-            {% for voter in voters %}
-                <li>{{ voter }}</li>
-            {% empty %}
+            {% if voters %}
+                {% for voter in voters %}
+                    <li>{{ voter }}</li>
+                {% endfor %}
+            {% else %}
                 <li>No votes yet.</li>
-            {% endfor %}
+            {% endif %}
         </ul>
     </div>
 </body>
