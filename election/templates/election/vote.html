@@ -7,34 +7,44 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="my-4">Cast Your Vote</h1>
+    <div class="container vh-100 d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'home' %}" class="btn btn-primary btn-lg mx-2 shadow-sm">SignOut</a>
+        </div><br>
+        <div class="card shadow-lg p-4 mb-5 bg-white rounded" style="width: 100%; max-width: 600px;">
+            <h1 class="mb-4 text-center text-primary">Cast Your Vote</h1>
 
-        <!-- Display messages -->
-        {% if messages %}
-            <div class="alert alert-dismissible fade show" role="alert">
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-                {% endfor %}
-                
-            </div>
-        {% endif %}
+            <!-- Display messages -->
+            {% if messages %}
+                <div class="alert alert-dismissible fade show" role="alert">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} mb-1">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
-        <form method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                <label>Select a candidate:</label>
-                {% for candidate in candidates %}
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="candidate" id="candidate{{ forloop.counter }}" value="{{ candidate.id }}">
-                        <label class="form-check-label" for="candidate{{ forloop.counter }}">
-                            {{ candidate.name }}
-                        </label>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="font-weight-bold">Select a candidate:</label>
+                    <div class="list-group">
+                        {% for candidate in candidates %}
+                            <div class="form-check list-group-item">
+                                <input class="form-check-input" type="radio" name="candidate" id="candidate{{ forloop.counter }}" value="{{ candidate.id }}">
+                                <label class="form-check-label" for="candidate{{ forloop.counter }}">
+                                    {{ candidate.name }}
+                                </label>
+                            </div>
+                        {% endfor %}
                     </div>
-                {% endfor %}
-            </div>
-            <button type="submit" class="btn btn-primary">Submit Vote</button>
-        </form>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mt-4">Submit Vote</button>
+            </form>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

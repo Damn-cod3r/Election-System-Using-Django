@@ -7,31 +7,58 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="my-4">Your Results</h1>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'home' %}" class="btn btn-primary btn-lg mx-2 shadow-sm">SignOut</a>
+        </div><br>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">Your Results</h1>
 
-        <!-- Display messages -->
-        {% if messages %}
-            <div class="alert alert-dismissible fade show" role="alert">
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-                {% endfor %}
-                
+                <!-- Display messages -->
+                {% if messages %}
+                    <div class="alert alert-dismissible fade show" role="alert">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card text-white bg-primary mb-3">
+                            <div class="card-header">Total Votes for You</div>
+                            <div class="card-body">
+                                <h2 class="card-title">{{ total_votes }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card text-white bg-success mb-3">
+                            <div class="card-header">Total Votes Cast</div>
+                            <div class="card-body">
+                                <h2 class="card-title">{{ total_vote_count }}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="text-center mb-3">Voters List</h2>
+                <ul class="list-group list-group-flush">
+                    {% if voters %}
+                        {% for voter in voters %}
+                            <li class="list-group-item">{{ voter }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li class="list-group-item">No votes yet.</li>
+                    {% endif %}
+                </ul>
             </div>
-        {% endif %}
-
-        <p><strong>Total Votes for You:</strong> {{ total_votes }}</p>
-        <p><strong>Total Votes Cast:</strong> {{ total_vote_count }}</p>
-        <h2>Voters List</h2>
-        <ul>
-            {% if voters %}
-                {% for voter in voters %}
-                    <li>{{ voter }}</li>
-                {% endfor %}
-            {% else %}
-                <li>No votes yet.</li>
-            {% endif %}
-        </ul>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

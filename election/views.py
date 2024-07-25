@@ -4,6 +4,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 
+
+def home(request):
+    return render(request, 'election/home.html')
+
 def candidate_signup(request):
     if request.method == 'POST':
         name = request.POST.get('name')
