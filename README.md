@@ -9,15 +9,22 @@ The **Election System App** is a simple and efficient voting platform designed t
 - **No Login Required**: The app currently does not require users to log in to cast a vote or view results, making the process quick and accessible.
 
 ## Screenshots
+![image](https://github.com/user-attachments/assets/2466b7b6-df62-441f-ac22-604fa7173635)
+![image](https://github.com/user-attachments/assets/39cbc35f-75df-49d1-9502-dd8122586db6)
+![image](https://github.com/user-attachments/assets/7ec0b7fe-ea57-4b87-855f-a965ec0bd425)
+![image](https://github.com/user-attachments/assets/47a926f6-986f-4f8e-9918-5bd939facd61)
+![image](https://github.com/user-attachments/assets/07e5a3a2-4673-4748-8596-5f0f9177beba)
+![image](https://github.com/user-attachments/assets/beee87f8-235e-431e-b5e3-b5edf130de2e)
+![image](https://github.com/user-attachments/assets/803d1455-3589-41f0-b792-78ec93f4911a)
 
 ### Voting Screen
-![Voting Screen](path_to_your_screenshot_voting.png)
+![image](https://github.com/user-attachments/assets/d1d5f2f6-da59-476e-8813-cc4e85847f73)
 
 The voting screen displays a list of candidates (Person 1, Person 2, Person 3, Person 4). Users can select one candidate and submit their vote via the `Submit` button.  
 URL: `http://127.0.0.1:8000/election/vote/`
 
 ### Results Screen
-![Results Screen](path_to_your_screenshot_results.png)
+![image](https://github.com/user-attachments/assets/8ab35875-741c-4f63-9bbd-aac524dbce29)
 
 After voting, users are directed to the results screen, which shows the total votes for each candidate.  
 URL: `http://127.0.0.1:8000/election/results/`
