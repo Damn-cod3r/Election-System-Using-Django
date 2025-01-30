@@ -6,7 +6,7 @@ The **Election System App** is a simple and efficient voting platform designed t
 ## Features
 - **Voting Interface**: Users can cast their vote for one of the available candidates.
 - **Real-time Results**: After voting, users can view the total number of votes each candidate has received.
-- **No Login Required**: The app currently does not require users to log in to cast a vote or view results, making the process quick and accessible.
+- **User Login Required**: Both voters and candidates must log in to cast votes and view results, ensuring secure and accurate participation.
 
 ## Screenshots
 ![image](https://github.com/user-attachments/assets/2466b7b6-df62-441f-ac22-604fa7173635)
